@@ -16,14 +16,13 @@ def clean_interest(rate):
 # Clean Interest.Rate and create Annual.Income column	 
 loans['RateClean'] = loans['Interest.Rate'].map(clean_interest)
 loans['AnnualIncome'] = loans['Monthly.Income'] * 12
-loans['Ownership'] = loans['Home.Ownership']
 
 # Visualize the relationship
 loans.plot(kind='scatter', x='AnnualIncome', y='RateClean')
 
 # Linear regression model
-lin_model = smf.ols(formula='RateClean ~ AnnualIncome', data=loans).fit()
-print lin_model.summary()
+#lin_model = smf.ols(formula='RateClean ~ AnnualIncome', data=loans).fit()
+#print lin_model.summary()
 # I'm getting an R-Squared of 0.000. AnnualIncome coeff of < 0.000001. That seems odd.
 
 # Multiple regression model
